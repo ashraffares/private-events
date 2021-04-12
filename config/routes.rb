@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :invitations
   resources :events
   devise_for :users
   root 'events#index'
