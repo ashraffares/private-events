@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_103843) do
+ActiveRecord::Schema.define(version: 2021_04_12_131911) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 2021_04_08_103843) do
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
-  create_table "invitation_lists", force: :cascade do |t|
+  create_table "invitations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_invitation_lists_on_event_id"
-    t.index ["user_id"], name: "index_invitation_lists_on_user_id"
+    t.index ["event_id"], name: "index_invitations_on_event_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +46,6 @@ ActiveRecord::Schema.define(version: 2021_04_08_103843) do
   end
 
   add_foreign_key "events", "users", column: "creator_id"
-  add_foreign_key "invitation_lists", "events"
-  add_foreign_key "invitation_lists", "users"
+  add_foreign_key "invitations", "events"
+  add_foreign_key "invitations", "users"
 end
