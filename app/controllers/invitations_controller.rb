@@ -13,16 +13,19 @@ class InvitationsController < ApplicationController
   # GET /invitations/new
   def new
     @invitation = Invitation.new
+    @users = User.all
   end
 
   # GET /invitations/1/edit
   def edit
   end
-
   # POST /invitations or /invitations.json
   def create
     @invitation = Invitation.new(invitation_params)
-
+    puts "________________________"
+    puts invitation_params
+    puts "______________________"
+    puts @invitation.inspect
     respond_to do |format|
       if @invitation.save
         format.html { redirect_to @invitation, notice: "Invitation was successfully created." }

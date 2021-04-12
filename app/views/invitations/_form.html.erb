@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :event_id %>
-    <%= form.text_field :event_id %>
-  </div>
+  
+    <%@users.each do |user|%>
+      <div class="field">
+        <%= form.label user.email.split('@')[0]%>
+        <%= form.check_box :user_id, :value => user.id%>
+        <%= form.text_field :event_id %>
+      </div>
+    <%end%>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
 <% end %>
+
+
+
