@@ -1,7 +1,25 @@
-<h1>Events</h1>
-   
+<h1>UpComing Events</h1>
+<div class="d-flex justify-content-between flex-wrap">
+     <% @events.upcoming.each do |event| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+           <h5 class="card-title"><%= event.name %></h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Des:<%= event.description %></p>
+          <p class="card-text">Loc:<%= event.location %></p>
+          <span class="card-subtitle text-muted">St: <%= event.start_date%></span> | 
+          <span class="card-subtitle text-muted">End: <%= event.end_date %></span>
+          <%= link_to 'Show', event,class:'card-link' %>
+          <%= link_to 'Edit', edit_event_path(event),class:'card-link' %>
+          <%= link_to 'Destroy', event,class:'card-link', method: :delete, data: { confirm: 'Are you sure?' }%>
+        </div>
+      </div>
+      <% end %>
+      </div>
+    <h1>Past Events</h1>
     <div class="d-flex justify-content-between flex-wrap">
-     <% @events.each do |event| %>
+     <% @events.past.each do |event| %>
       <div class="card" style="width: 18rem;">
         <div class="card-header">
            <h5 class="card-title"><%= event.name %></h5>
