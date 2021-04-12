@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[index show]
+  before_action :correct_user, only: %i[edit update destroy]
 
   # GET /events or /events.json
   def home
@@ -58,6 +59,11 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @event =current_user.created_events.find_by(id: params[:id])
+    redirect_to root_path, notice: 'Not Authorized To Edit Event' if @event.nil?
   end
 
   private
