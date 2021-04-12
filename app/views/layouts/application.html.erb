@@ -26,8 +26,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-      <%=render 'events/nav'%>
-      <%= yield %>
+      <%=render 'events/nav'%>\
+      <div class="container">
+        <%= yield %>
+      </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
