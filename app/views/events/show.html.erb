@@ -1,32 +1,22 @@
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event.creator_id %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Location</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%= @event.name %></th>
+      <td><%= @event.start_date %></td>
+      <td><%= @event.end_date %></td>
+      <td><%= @event.location %></td>
+      <td><%= @event.description %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_event_path(@event),class:'btn btn-secondary' %> 
+<%= link_to 'Back', events_path,class:'btn btn-secondary' %>

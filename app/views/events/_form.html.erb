@@ -1,3 +1,4 @@
+<div class="card-body">
 <%= form_with(model: event) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -10,33 +11,34 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name,class:'form-control'%>
   </div>
 
   <div class="field">
     <%= form.label :start_date %>
-    <%= form.date_field :start_date %>
+    <%= form.date_field :start_date,class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :end_date %>
-    <%= form.date_field :end_date %>
+    <%= form.date_field :end_date,class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location,class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description,class:'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-primary mt-2' %>
   </div>
 <% end %>
+
+</div>
