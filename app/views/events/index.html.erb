@@ -1,35 +1,24 @@
 <h1>Events</h1>
+   
+    <div class="d-flex justify-content-between flex-wrap">
+     <% @events.each do |event| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+           <h5 class="card-title"><%= event.name %></h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Des:<%= event.description %></p>
+          <p class="card-text">Loc:<%= event.location %></p>
+          <span class="card-subtitle text-muted">St: <%= event.start_date%></span> | 
+          <span class="card-subtitle text-muted">End: <%= event.end_date %></span>
+          <%= link_to 'Show', event,class:'card-link' %>
+          <%= link_to 'Edit', edit_event_path(event),class:'card-link' %>
+          <%= link_to 'Destroy', event,class:'card-link', method: :delete, data: { confirm: 'Are you sure?' }%>
+        </div>
+      </div>
+      <% end %>
+      </div>
+    
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.start_date %></td>
-        <td><%= event.end_date %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-        <td><%= event.creator_id %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Event', new_event_path %>
