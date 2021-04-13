@@ -4,7 +4,6 @@ class InvitationsController < ApplicationController
 
   # GET /invitations or /invitations.json
   def index
-    @invitations = Invitation.all
   end
 
   # GET /invitations/1 or /invitations/1.json
@@ -14,6 +13,7 @@ class InvitationsController < ApplicationController
   # GET /invitations/new
   def new
     @invitation = Invitation.new
+    
   end
 
   # GET /invitations/1/edit

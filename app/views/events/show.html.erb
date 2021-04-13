@@ -7,6 +7,7 @@
       <th>Location</th>
       <th>Description</th>     
       <th>Creator</th> 
+      <th>invitation</th> 
     </tr>
   </thead>
   <tbody>
@@ -17,11 +18,20 @@
       <td><%= @event.location %></td>
       <td><%= @event.description %></td>
       <td><%= @event.creator.email.split('@')[0] %></td>
-      
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            List
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%@event.attendees.each do |attendee|%>
+              <a class="dropdown-item" href="#"><%=attendee.email.split('@')[0]%></a>
+            <%end%>
+          </div>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
 <%= link_to 'Edit', edit_event_path(@event),class:'btn btn-secondary' %> 
 <%= link_to 'Back', events_path,class:'btn btn-secondary' %>
-
-
