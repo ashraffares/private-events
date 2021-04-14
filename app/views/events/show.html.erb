@@ -20,15 +20,15 @@
       <td><%= @event.creator.email.split('@')[0] %></td>
       <td>
         <div class="dropdown">
-          <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            List
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <%@event.attendees.each do |attendee|%>
-              <a class="dropdown-item" href="#"><%=attendee.email.split('@')[0]%></a>
+              <li><a class="dropdown-item" href="#"><%=attendee.email.split('@')[0]%></a></li>
             <%end%>
-          </div>
-        </div>
+        </ul>
+      </div>
       </td>
     </tr>
   </tbody>
