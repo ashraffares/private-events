@@ -18,7 +18,8 @@ Additional description about the project and its features.
 ## Built With
 - Ruby on Rails
 - Ruby
-- Rspec
+- rails Rspec
+- devise
 
 ## Authors
 - GitHub: [@githubhandle](https://github.com/ashraffares/http-ashraffares.github.io-)
