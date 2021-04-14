@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :creator , class_name: 'User'
+  belongs_to :creator, class_name: 'User'
   has_many :invitation, dependent: :destroy
   has_many :attendees, through: :invitation, source: :user
 
