@@ -5,4 +5,6 @@ class Event < ApplicationRecord
 
   scope :past, -> { where('start_date < ?', Date.today) }
   scope :upcoming, -> { where('start_date >= ?', Date.today) }
+
+  validates :name, :start_date, :end_date, :location, :description, :creator_id, presence: true
 end
