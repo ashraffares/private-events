@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 
-Rspec.describe Invitation, type: :model do
+RSpec.describe Invitation, type: :model do
   it 'validate presence of user_id' do
     expect { should validate_presence_of(user_id) }
   end

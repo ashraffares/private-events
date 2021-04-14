@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 
-Rspec.describe User, type: :model do
+RSpec.describe User, type: :model do
   it 'validate email and password by devise' do
     user = User.new(email: '', password: '')
     expect(user.valid?).to be(false)
