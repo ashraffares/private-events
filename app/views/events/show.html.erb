@@ -25,10 +25,25 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <%@event.attendees.each do |attendee|%>
-              <li><a class="dropdown-item" href="#"><%=attendee.email.split('@')[0]%></a></li>
+              <li><a class="dropdown-item"><%=attendee.email.split('@')[0]%></a></li>
             <%end%>
         </ul>
       </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form_with(model: @invitation) do |form| %>
+            <div class="feild">
+              <%= form.number_field :user_id ,value:current_user.id,type: :hidden%>   
+            </div>
+            <div class="feild">
+              <%= form.number_field :event_id,value:@event.id,type: :hidden%>  
+            </div>    
+            <div class="actions">
+              <%= form.submit "Enroll",class: 'btn btn-primary'%>
+            </div>
+        <% end %>
       </td>
     </tr>
   </tbody>
