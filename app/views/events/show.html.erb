@@ -7,7 +7,6 @@
       <th>Location</th>
       <th>Description</th>     
       <th>Creator</th> 
-      <th>invitation</th> 
     </tr>
   </thead>
   <tbody>
@@ -18,22 +17,25 @@
       <td><%= @event.location %></td>
       <td><%= @event.description %></td>
       <td><%= @event.creator.email.split('@')[0] %></td>
-      <td>
-        <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown button
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <%@event.attendees.each do |attendee|%>
-              <li><a class="dropdown-item"><%=attendee.email.split('@')[0]%></a></li>
-            <%end%>
-        </ul>
-      </div>
-      </td>
     </tr>
-    <tr>
-      <td>
-        <%= form_with(model: @invitation) do |form| %>
+    
+      
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_event_path(@event),class:'btn btn-secondary' %> 
+<%= link_to 'Back', events_path,class:'btn btn-secondary' %>
+
+
+<div class="list-group w-50 mt-3">
+<a class="list-group-item list-group-item-action active" aria-current="true">
+    invitation list
+  </a>
+ <%@event.attendees.each do |attendee|%>
+  <a href="#" class="list-group-item list-group-item-action"><%=attendee.email.split('@')[0]%></a>
+  <%end%>
+
+
+      <%= form_with(model: @invitation) do |form| %>
             <div class="feild">
               <%= form.number_field :user_id ,value:current_user.id,type: :hidden%>   
             </div>
@@ -44,9 +46,4 @@
               <%= form.submit "Enroll",class: 'btn btn-primary'%>
             </div>
         <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<%= link_to 'Edit', edit_event_path(@event),class:'btn btn-secondary' %> 
-<%= link_to 'Back', events_path,class:'btn btn-secondary' %>
+</div>
