@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   before_action :correct_user, only: %i[edit update destroy]
 
   # GET /events or /events.json
-  def home; end
 
   def index
     @events = Event.all
