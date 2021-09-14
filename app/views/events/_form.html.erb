@@ -1,0 +1,44 @@
+<div class="card-body">
+<%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name,class:'form-control'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date,class:'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date,class:'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location,class:'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description,class:'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary mt-2' %>
+  </div>
+<% end %>
+
+</div>

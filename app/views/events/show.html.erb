@@ -1,0 +1,49 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Location</th>
+      <th>Description</th>     
+      <th>Creator</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%= @event.name %></th>
+      <td><%= @event.start_date %></td>
+      <td><%= @event.end_date %></td>
+      <td><%= @event.location %></td>
+      <td><%= @event.description %></td>
+      <td><%= @event.creator.email.split('@')[0] %></td>
+    </tr>
+    
+      
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_event_path(@event),class:'btn btn-secondary' %> 
+<%= link_to 'Back', events_path,class:'btn btn-secondary' %>
+
+
+<div class="list-group w-50 mt-3">
+<a class="list-group-item list-group-item-action active" aria-current="true">
+    invitation list
+  </a>
+ <%@event.attendees.each do |attendee|%>
+  <a href="#" class="list-group-item list-group-item-action"><%=attendee.email.split('@')[0]%></a>
+  <%end%>
+
+
+      <%= form_with(model: @invitation) do |form| %>
+            <div class="feild">
+              <%= form.number_field :user_id ,value:current_user.id,type: :hidden%>   
+            </div>
+            <div class="feild">
+              <%= form.number_field :event_id,value:@event.id,type: :hidden%>  
+            </div>    
+            <div class="actions">
+              <%= form.submit "Enroll",class: 'btn btn-primary'%>
+            </div>
+        <% end %>
+</div>
